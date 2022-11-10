@@ -1,0 +1,134 @@
+Ex 21:
+
+Qu 1 :
+La complexité est de 0(2*(n²/B) + 1) et on prend la partie supérieur entière de (n²/B).
+On ajoute 1 car pas aligné et on a multiplié par 2 car on a deux matrices.
+Cela fonctionne si 2n² < M.
+
+Qu 2 :
+La complexité est de 0(2*(n²+1)) si 2 < M/B <= n.
+
+Qu 3 :
+Si M >= (n+1)B alors la complexité optimale est de 0(n²/B).
+
+Qu 4 :
+LEVEL1_ICACHE_SIZE                 32768
+LEVEL1_ICACHE_ASSOC                
+LEVEL1_ICACHE_LINESIZE             64
+LEVEL1_DCACHE_SIZE                 49152
+LEVEL1_DCACHE_ASSOC                12
+LEVEL1_DCACHE_LINESIZE             64
+
+On peut donc en déduire de M = 32768 et B = 64
+En utilisant la condition sur la complexité optimale : M >= (n+1)B
+Nous pouvons en déduire que n <= (M/B)-1 donc n <= 511
+0(n²/64) <=> 0(511²/64) = 4080
+La complexité optimale vue en cours est 0(n³/B*sqrt(M)) <=> 0(511³/64*sqrt(32768)) = 11517
+
+On a donc bien un code optimal.
+
+
+Qu 5:
+
+Pour n = 511, avec des matrices de taille 2⁷
+Les performances de l'algo naïf sont :
+nbr cycles: 74944
+nbr secondes: 3.1105e-05
+nbr millisecondes: 0.031105
+CPI = 146.661
+IPC = 0.00681842
+
+Pour n = 511, avec des matrices de taille 2⁷ et b = 1
+Les performances de l'algo par bloc sont :
+nbr cycles: 11313
+nbr secondes: 4.778e-06
+nbr millisecondes: 0.004778
+CPI = 22.1389
+IPC = 0.0451693
+
+On voit ici que l'algo par bloc est meilleur que le naïf.
+
+Si on teste notre algo par bloc pour n = 511, avec des matrices de taille 2⁷ et b = 32 : 
+nbr cycles: 5206
+nbr secondes: 2.27e-06
+nbr millisecondes: 0.00227
+CPI = 10.1879
+IPC = 0.098156
+
+On voit qu'on a encore de meilleures performances.
+
+Pour un bloc b = 128 :
+nbr cycles: 4949
+nbr secondes: 2.13e-06
+nbr millisecondes: 0.00213
+CPI = 9.68493
+IPC = 0.103253
+
+Le meilleur b est la taille du tableau.
+
+
+
+Ex 22 :
+
+Qu 3 :
+Pour N = 128 et un tableau de taille 128 on a :
+
+Les performances de l'algo naïf sont :
+nbr cycles: 6741
+nbr secondes: 2.898e-06
+nbr millisecondes: 0.002898
+CPI = 52.6641
+IPC = 0.0189883
+
+Les performances de l'algo avec bucket sont :
+nbr cycles: 106679
+nbr secondes: 4.4234e-05
+nbr millisecondes: 0.044234
+CPI = 833.43
+IPC = 0.00119986
+
+On voit qu'on a de meilleures performances sur l'algo naïf.
+
+Si on diminue le m à 4, on obtient :
+
+nbr cycles: 6040
+nbr secondes: 2.601e-06
+nbr millisecondes: 0.002601
+CPI = 47.1875
+IPC = 0.0211921
+
+Là on a de meilleures performances qu'avec l'algo naïf.
+
+Qu 4 : 
+Je pense donc que le choix de m = 64 n'est pas judicieux car il va diminuer la performance.
+
+Si on prend m = 3 :
+nbr cycles: 6056
+nbr secondes: 2.596e-06
+nbr millisecondes: 0.002596
+CPI = 47.3125
+IPC = 0.0211361
+
+Si on prend m = 2 :
+nbr cycles: 5826
+nbr secondes: 2.539e-06
+nbr millisecondes: 0.002539
+CPI = 45.5156
+IPC = 0.0219705
+
+Si on prend m = 1 :
+nbr cycles: 6832
+nbr secondes: 2.965e-06
+nbr millisecondes: 0.002965
+CPI = 53.375
+IPC = 0.0187354
+
+Le plus judicieux est donc de prendre m = 2, c'est là où on a les meilleures performances possible.
+
+
+
+
+
+
+
+

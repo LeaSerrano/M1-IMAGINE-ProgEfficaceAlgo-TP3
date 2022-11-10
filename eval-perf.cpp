@@ -7,6 +7,7 @@
 #include <cmath>
 #include <algorithm>
 
+//Ex 16
 double* mat2vec(size_t n , const double* A , double* y , double* tmp , size_t k, double* v){
     for(int i = 0;i < n;++i) {
         for (int j = 0 ; j < n ; j+=k) {
@@ -76,7 +77,7 @@ int main() {
 
 PE.start();
   
-    double* test = mat2vec(4, A, y, tmp, k, v);
+    /*double* test = mat2vec(4, A, y, tmp, k, v);
     for (int i = 0; i < 4; i++) {
         std::cout << test[i] << std::endl;
     }
@@ -84,7 +85,7 @@ PE.start();
     double* test2 = mat2tvec(4, A, y, tmp, k, v);
     for (int i = 0; i < 4; i++) {
         std::cout << test2[i] << std::endl;
-    }
+    }*/
 
   PE.stop();
 
